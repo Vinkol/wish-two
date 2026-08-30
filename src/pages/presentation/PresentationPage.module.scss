@@ -88,3 +88,25 @@
     transform: translateY(0);
   }
 }
+
+.themeToggleBtn {
+  background-color: rgb(0 0 0 / 4%) !important;
+  border: 1px solid rgb(0 0 0 / 8%) !important;
+  color: #1e293b !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: rgb(0 0 0 / 8%) !important;
+    transform: scale(1.05);
+  }
+
+  [data-theme='dark'] & {
+    background-color: rgb(255 255 255 / 6%) !important;
+    border: 1px solid rgb(255 255 255 / 10%) !important;
+    color: #f8fafc !important;
+
+    &:hover {
+      background-color: rgb(255 255 255 / 10%) !important;
+    }
+  }
+}

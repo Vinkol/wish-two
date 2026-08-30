@@ -23,9 +23,9 @@ export const PresentationPage: React.FC = () => {
           <ActionIcon
             onClick={() => dispatch(toggleTheme())}
             variant="subtle"
-            color="gray"
             size="lg"
             radius="md"
+            className={styles.themeToggleBtn}
           >
             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
           </ActionIcon>

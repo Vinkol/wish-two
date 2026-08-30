@@ -1,4 +1,4 @@
-@import '../../../app/styles/variables.module.scss'; // Поправили расширение на .module.scss
+@import '../../../app/styles/variables.module';
 
 .card {
   display: flex;
@@ -6,7 +6,7 @@
   height: 100%;
   background-color: var(--bg-surface) !important;
   border-color: var(--border-color) !important;
-  border-radius: 16px !important; // Закругления под премиум-стандарт
+  border-radius: 16px !important;
   overflow: hidden;
   transition:
     transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -14,18 +14,18 @@
     background-color 0.3s ease;
 
   &:hover {
-    transform: translateY(-6px); // Сеньор-подъем на 6px
-    box-shadow: 0 16px 36px rgba(20, 184, 166, 0.08); // Бирюзовое свечение ховера
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgb(20 184 166 / 8%);
 
     [data-theme='dark'] & {
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 40px rgb(0 0 0 / 40%);
       border-color: var(--accent-color) !important;
     }
   }
 }
 
 .imageSection {
-  position: relative; // База для парящих элементов
+  position: relative;
   border-bottom: 1px solid var(--border-color);
   overflow: hidden;
   background-color: var(--bg-main);
@@ -36,28 +36,25 @@
   animation: fadeIn 0.4s ease-in-out;
 
   .card:hover & {
-    transform: scale(1.05); // Плавный наплыв фото места
+    transform: scale(1.05);
   }
 }
 
-// ДОБАВЛЕНО: Премиальный градиентный плейсхолдер с компасом
 .placeholderGradient {
   height: 200px;
   width: 100%;
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  background: linear-gradient(135deg, rgb(20 184 166 / 5%) 0%, rgb(99 102 241 / 5%) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-// ДОБАВЛЕНО: Пульсация компаса в плейсхолдере
 .placeholderIcon {
   color: var(--text-muted);
   opacity: 0.4;
   animation: pulse 2s infinite ease-in-out;
 }
 
-// ДОБАВЛЕНО: Контейнер для парящих элементов
 .floatingBadges {
   position: absolute;
   top: 12px;
@@ -65,14 +62,13 @@
   z-index: 5;
 }
 
-// ДОБАВЛЕНО: Эффект матового стекла (Glassmorphism) для статусов поездки
 .glassBadge {
   backdrop-filter: blur(12px) !important;
-  background-color: rgba(15, 23, 42, 0.6) !important; // Полупрозрачный графит
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background-color: rgb(15 23 42 / 60%) !important;
+  color: #fff !important;
+  border: 1px solid rgb(255 255 255 / 10%) !important;
   font-weight: 600 !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
 }
 
 .locationIcon {
@@ -87,7 +83,6 @@
   letter-spacing: -0.3px;
 }
 
-// ДОБАВЛЕНО: Анимация ховера для корзины удаления поездки
 .deleteIcon {
   opacity: 0.5;
   transition:
@@ -129,13 +124,13 @@
 .btnVisited {
   background-color: var(--accent-color) !important;
   color: #fff !important;
-  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.2);
+  box-shadow: 0 4px 14px rgb(20 184 166 / 20%);
 
   &:hover {
     background-color: var(--accent-color) !important;
     opacity: 0.9;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3);
+    box-shadow: 0 6px 20px rgb(20 184 166 / 30%);
   }
 }
 
@@ -150,10 +145,11 @@
 }
 
 // ДОБАВЛЕНО: Keyframes для эффектов
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -165,6 +161,7 @@
     transform: scale(1);
     opacity: 0.4;
   }
+
   50% {
     transform: scale(1.04);
     opacity: 0.6;
