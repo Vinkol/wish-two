@@ -102,7 +102,11 @@ export const AuthPage: React.FC = () => {
               value={password}
               onChange={(event) => setPassword(event.currentTarget.value)}
               mb="xl"
-              classNames={{ label: styles.inputLabel, input: styles.inputField }}
+              classNames={{
+                label: styles.inputLabel,
+                input: styles.inputField,
+                innerInput: styles.passwordInner,
+              }}
             />
 
             <Button type="submit" fullWidth loading={isSubmitting} className={styles.submitButton}>
