@@ -1,0 +1,101 @@
+@import '../../../app/styles/variables.module';
+
+.card {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.title {
+  color: var(--text-main);
+}
+
+.landmarkIcon {
+  color: #74c0fc; // Оставили приятный небесный цвет для иконки банка
+}
+
+.createButton {
+  background-color: rgb(99 102 241 / 10%) !important;
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+}
+
+.emptyCenter {
+  height: 100px;
+}
+
+.emptyText {
+  color: var(--text-muted);
+}
+
+.goalRow {
+  border-bottom: 1px solid var(--border-color) !important; // Динамическая граница вместо #f1f3f5
+  padding-bottom: 1rem !important;
+
+  &:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.goalTitle {
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.goalSub {
+  color: var(--text-muted);
+}
+
+.deleteButton {
+  color: var(--text-muted) !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    color: #f87171 !important;
+    background-color: rgb(239 68 68 / 8%) !important;
+  }
+}
+
+.progressBar {
+  div {
+    background-color: var(--primary-color) !important; // Прогресс теперь благородного индиго-цвета
+  }
+}
+
+.inputFieldContainer {
+  flex: 1;
+}
+
+.inputField {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 6px !important;
+
+  &:focus {
+    border-color: var(--primary-color) !important;
+  }
+}
+
+.depositButton {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgb(99 102 241 / 12%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgb(99 102 241 / 22%);
+  }
+}

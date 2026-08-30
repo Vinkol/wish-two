@@ -1,0 +1,179 @@
+@import '../../app/styles/variables.module';
+
+.container {
+  width: 100%;
+  animation: fade-in 0.3s ease-in-out;
+}
+
+.title {
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+// Карточки аналитики баланса (Дашборд)
+.statCard {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 1.25rem !important;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 2%);
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgb(0 0 0 / 4%);
+
+    [data-theme='dark'] & {
+      box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
+      border-color: rgb(255 255 255 / 10%) !important;
+    }
+  }
+}
+
+.balanceCard {
+  background-color: var(--bg-main) !important;
+  border-style: dashed !important;
+}
+
+.statLabel {
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.incomeIcon,
+.incomeText {
+  color: #10b981 !important; // Изумрудный доход
+}
+
+.expenseIcon,
+.expenseText {
+  color: #f87171 !important; // Мягкий красный расход
+}
+
+.balanceIcon {
+  color: var(--primary-color);
+}
+
+// Основные блоки контента (Формы и Списки)
+.card {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  border-radius: 14px !important;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cardTitle {
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.segmentControl {
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.inputLabel {
+  color: var(--text-main) !important;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.inputField {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 8px !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgb(99 102 241 / 10%) !important;
+  }
+}
+
+// Кнопки фиксации операций
+.btnIncome {
+  background-color: #10b981 !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgb(16 185 129 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: #059669 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(16 185 129 / 25%);
+  }
+}
+
+.btnExpense {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgb(99 102 241 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(99 102 241 / 25%);
+  }
+}
+
+// Стили таблицы истории последних операций
+.emptyText {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.historyRow {
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 0.85rem 0.5rem !important;
+  transition: background-color 0.2s ease;
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+
+  &:hover {
+    background-color: rgb(99 102 241 / 2%) !important;
+  }
+}
+
+.historyCategory {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.historyDescription {
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

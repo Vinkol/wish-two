@@ -1,0 +1,135 @@
+@import '../../app/styles/variables.module';
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+}
+
+.title {
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.card {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.cardTitle {
+  color: var(--text-main);
+}
+
+.alertTitle {
+  font-weight: 700 !important;
+  color: var(--text-main) !important;
+}
+
+.alertTextContent {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-main) !important;
+
+  .alertSingle & {
+    color: var(--text-muted) !important;
+  }
+}
+
+.alertConnected {
+  background-color: rgb(99 102 241 / 10%) !important;
+  border: 1px solid rgb(99 102 241 / 20%) !important;
+
+  svg {
+    color: var(--primary-color) !important;
+  }
+}
+
+.alertSingle {
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color) !important;
+
+  svg {
+    color: var(--text-muted) !important;
+  }
+}
+
+.inputContainer {
+  flex: 1;
+}
+
+.inputLabel {
+  color: var(--text-main) !important;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.inputField {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: var(--primary-color) !important;
+  }
+}
+
+.connectButton {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgb(99 102 241 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(99 102 241 / 25%);
+  }
+}
+
+.disconnectButton {
+  border-color: #f87171 !important;
+  color: #f87171 !important;
+  font-weight: 600;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: rgb(239 68 68 / 5%) !important;
+    border-color: #ef4444 !important;
+    color: #ef4444 !important;
+  }
+}
+
+.uploadAvatarBtn {
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  font-weight: 600;
+  height: 38px !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--border-color) !important;
+  }
+}
+
+.avatarPlaceholder {
+  background-color: var(--bg-main) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-color);
+}
+
+.partnerPairBlock {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  padding: 1rem !important;
+}

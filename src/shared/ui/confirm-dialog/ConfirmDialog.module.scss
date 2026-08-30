@@ -1,0 +1,59 @@
+@import '../../../app/styles/variables.module.scss';
+
+.modalContent {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 14px !important;
+  transition: background-color 0.3s ease;
+}
+
+.modalHeader {
+  background-color: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding-bottom: 0.75rem !important;
+  transition: background-color 0.3s ease;
+
+  button {
+    color: var(--text-muted);
+
+    &:hover {
+      background-color: var(--bg-main) !important;
+      color: var(--text-main);
+    }
+  }
+}
+
+.modalTitle {
+  color: var(--text-main) !important;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.modalText {
+  color: var(--text-main) !important;
+  margin-top: 1rem;
+}
+
+.modalConfirmBtn {
+  background-color: #f87171 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  transition: background-color 0.2s ease !important;
+
+  &:hover {
+    background-color: #ef4444 !important;
+  }
+}
+
+.modalCancelBtn {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  font-weight: 500;
+  border-radius: 8px !important;
+
+  &:hover {
+    background-color: var(--border-color) !important;
+  }
+}

@@ -1,0 +1,146 @@
+@import '../../../app/styles/variables.module';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+// Стили самого модального окна под темную тему
+.modalContent {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color);
+  border-radius: 14px !important;
+  transition: background-color 0.3s ease;
+}
+
+.modalHeader {
+  background-color: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem !important;
+  transition: background-color 0.3s ease;
+
+  button {
+    color: var(--text-muted);
+
+    &:hover {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+    }
+  }
+}
+
+.modalTitle {
+  color: var(--text-main) !important;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+// Стили элементов полей ввода
+.inputLabel {
+  color: var(--text-main) !important;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.inputField {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 8px !important;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px rgb(99 102 241 / 10%) !important;
+  }
+}
+
+// Выпадающий список Select
+.selectDropdown {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+.selectOption {
+  color: var(--text-main) !important;
+
+  &:hover,
+  &[data-hovered] {
+    background-color: var(--bg-main) !important;
+  }
+
+  &[data-selected] {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+  }
+}
+
+// Стилизация компонента Switch
+.switchRoot {
+  align-items: flex-start;
+}
+
+.switchLabel {
+  color: var(--text-main) !important;
+  font-weight: 600;
+}
+
+.switchDescription {
+  color: var(--text-muted) !important;
+}
+
+.switchTrack {
+  cursor: pointer;
+
+  :checked + & {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+  }
+}
+
+// Кнопка добавления в индиго стиле
+.submitButton {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgb(99 102 241 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(99 102 241 / 25%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.uploadBtn {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  color: var(--primary-color) !important;
+  border: 1px dashed var(--primary-color) !important;
+  height: 42px !important;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+  }
+}
+
+.previewContainer {
+  background-color: var(--bg-main) !important;
+  border-color: var(--border-color) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  width: 58px;
+  flex-shrink: 0;
+}

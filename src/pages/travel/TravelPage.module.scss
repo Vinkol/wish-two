@@ -1,0 +1,42 @@
+@import '../../app/styles/variables.module';
+
+.container {
+  width: 100%;
+}
+
+.title {
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.addButton {
+  background-color: var(--accent-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgb(20 184 166 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(20 184 166 / 25%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.emptyText {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.emptySubtext {
+  color: var(--text-muted);
+}

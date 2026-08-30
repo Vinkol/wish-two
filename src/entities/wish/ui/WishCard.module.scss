@@ -1,0 +1,175 @@
+@import '../../../app/styles/variables.module.scss'; // Сеньор-фикс: поправили расширение на .module.scss
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+  border-radius: 16px !important; // Слегка увеличили скругление для премиального вида
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px); // Сделали подъем чуть выразительнее
+    box-shadow: 0 16px 36px rgba(99, 102, 241, 0.08);
+
+    [data-theme='dark'] & {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      border-color: var(--primary-color) !important;
+    }
+  }
+}
+
+.imageSection {
+  position: relative; // Необходимо для абсолютного позиционирования парящих бейджей
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+  background-color: var(--bg-main);
+}
+
+.image {
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: fadeIn 0.4s ease-in-out;
+
+  .card:hover & {
+    transform: scale(1.05); // Эффект наплыва картинки при наведении
+  }
+}
+
+// ДОБАВЛЕНО: Современный градиентный плейсхолдер, если у товара нет фото
+.placeholderGradient {
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ДОБАВЛЕНО: Плавная пульсация иконки подарка в плейсхолдере
+.placeholderIcon {
+  color: var(--text-muted);
+  opacity: 0.4;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+// ДОБАВЛЕНО: Контейнер для позиционирования бейджей поверх картинки
+.floatingBadges {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+// ДОБАВЛЕНО: Эффект матового стекла (Glassmorphism) для парящих бейджей
+.glassBadge {
+  backdrop-filter: blur(12px) !important;
+  background-color: rgba(15, 23, 42, 0.6) !important; // Полупрозрачная подложка
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+
+.price {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+// ДОБАВЛЕНО: Микро-анимация для корзины удаления
+.deleteIcon {
+  opacity: 0.5;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.storeButton {
+  background-color: var(--bg-main) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--border-color) !important;
+  }
+}
+
+.actionButton {
+  font-weight: 600;
+  transition: all 0.25s ease !important;
+}
+
+.giftButton {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.2);
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+  }
+}
+
+.bookedByMe {
+  background-color: #10b981 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+
+  &:hover {
+    background-color: #059669 !important;
+    transform: translateY(-1px);
+  }
+}
+
+.alreadyBooked {
+  background-color: var(--bg-main) !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+// ДОБАВЛЕНО: Анимации для плавности интерфейса
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.6;
+  }
+}

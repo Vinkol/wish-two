@@ -1,0 +1,64 @@
+@import '../../app/styles/variables.module';
+
+.container {
+  width: 100%;
+}
+
+.title {
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.addButton {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgb(99 102 241 / 15%);
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: var(--primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(99 102 241 / 25%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.tabList {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.tabItem {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  &[data-active] {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    font-weight: 600;
+  }
+}
+
+.emptyText {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.emptySubtext {
+  color: var(--text-muted);
+}

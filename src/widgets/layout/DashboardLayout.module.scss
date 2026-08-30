@@ -1,0 +1,20 @@
+@import '../../app/styles/variables.module';
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  transition: background-color 0.3s ease;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: $sidebar-width;
+  padding: 2.5rem;
+  min-height: 100vh;
+
+  @include mobile {
+    margin-left: 80px;
+    padding: 1.5rem;
+  }
+}
