@@ -1,5 +1,7 @@
 @import '../../app/styles/variables.module';
 
+$collapsed-width: 70px;
+
 .sidebar {
   width: $sidebar-width;
   height: 100vh;
@@ -12,11 +14,76 @@
   flex-direction: column;
   padding: 1.5rem;
   z-index: 100;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    width 0.3s ease,
+    padding 0.3s ease,
+    transform 0.3s ease;
 
   @include mobile {
-    width: 80px;
-    padding: 1rem 0.5rem;
+    width: 260px;
+    padding: 1.5rem;
+    transform: translateX(0);
+  }
+}
+
+// ПАРИРУЮЩАЯ КНОПКА ПЕРЕКЛЮЧЕНИЯ
+.toggleButton {
+  position: absolute;
+  right: -14px;
+  top: 24px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 110;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+}
+
+// МОДИФИКАТОР СВЕРНУТОГО СОСТОЯНИЯ (НА ПК)
+.sidebar.collapsed {
+  width: $collapsed-width;
+  padding: 1.5rem 0.5rem;
+
+  .logoSection {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .link,
+  .activeLink,
+  .themeButton,
+  .logoutButton {
+    justify-content: center;
+    padding: 0.8rem 0;
+  }
+
+  @include mobile {
+    width: 260px;
+    padding: 1.5rem;
+    transform: translateX(-100%);
+
+    .toggleButton {
+      right: -42px;
+      background-color: var(--primary-color);
+      color: #fff;
+    }
   }
 }
 
@@ -26,11 +93,6 @@
   gap: 0.75rem;
   margin-bottom: 2.5rem;
   padding-left: 0.5rem;
-
-  @include mobile {
-    justify-content: center;
-    padding-left: 0;
-  }
 }
 
 .logoText {
@@ -38,10 +100,6 @@
   font-size: 1.35rem;
   color: var(--text-on-sidebar);
   letter-spacing: -0.5px;
-
-  @include mobile {
-    display: none;
-  }
 }
 
 .navigation {
@@ -65,15 +123,6 @@
   &:hover {
     background-color: rgb(255 255 255 / 5%);
     color: #fff;
-  }
-
-  @include mobile {
-    justify-content: center;
-    padding: 0.75rem;
-
-    span {
-      display: none;
-    }
   }
 }
 
@@ -115,15 +164,6 @@
   &:hover {
     background-color: rgb(255 255 255 / 5%);
     color: #fff;
-  }
-
-  @include mobile {
-    justify-content: center;
-    padding: 0.75rem;
-
-    span {
-      display: none;
-    }
   }
 }
 
