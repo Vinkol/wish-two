@@ -4,7 +4,7 @@ import { Title, Text, Paper, TextInput, Button, Stack, Group, Alert, Avatar } fr
 import { Heart, UserCheck, UserX, Link2 } from 'lucide-react';
 import type { AppDispatch, RootState } from '../../shared/store/store';
 import { linkPartnerByEmail, unlinkPartner } from '../../features/pair/model/pairActions';
-import { initAuthListener } from '../../features/auth/model/authActions';
+import { refreshUserProfile } from '../../features/auth/model/authActions';
 import { PersonalDataForm } from '../../features/pair/ui/PersonalDataForm'; // Импорт виджета
 import { openConfirmDialog } from '../../shared/ui/confirm-dialog/confirmDialog';
 import styles from './SettingsPage.module.scss';
@@ -25,16 +25,16 @@ export const SettingsPage: React.FC = () => {
     const success = await linkPartnerByEmail(user.id, partnerEmail);
     if (success) {
       setPartnerEmail('');
-      await dispatch(initAuthListener());
-      window.location.reload();
+      await dispatch(refreshUserProfile());
     }
     setLoading(false);
   };
 
   const handleDisconnectClick = () => {
     if (!user.partnerId) return;
+
     openConfirmDialog({
-      title: 'Разрыв связи аккаунтов 💔',
+      title: 'Разрыв связи аккаунтов',
       message:
         'Вы уверены, что хотите разорвать связь профилей? Ваши общие списки желаний, поездки и кошелек больше не будут синхронизированы.',
       confirmLabel: 'Разорвать',
@@ -42,8 +42,7 @@ export const SettingsPage: React.FC = () => {
         setLoading(true);
         const success = await unlinkPartner(user.id, user.partnerId!);
         if (success) {
-          await dispatch(initAuthListener());
-          window.location.reload();
+          await dispatch(refreshUserProfile());
         }
         setLoading(false);
       },

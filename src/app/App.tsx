@@ -31,9 +31,22 @@ const App: React.FC = () => {
   const { isLoading } = useSelector((state: RootState) => state.auth);
 
   useEffect(() => {
-    dispatch(initAuthListener());
+    let unsubscribeFn: (() => void) | null = null;
+
+    const startListener = async () => {
+      const unsubscribe = await dispatch(initAuthListener());
+      unsubscribeFn = unsubscribe;
+    };
+
+    startListener();
+
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
+    return () => {
+      if (unsubscribeFn) {
+        unsubscribeFn();
+      }
+    };
   }, [dispatch]);
 
   if (isLoading) {
