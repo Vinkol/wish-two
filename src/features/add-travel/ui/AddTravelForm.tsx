@@ -153,8 +153,8 @@ export const AddTravelForm: React.FC<AddTravelFormProps> = ({
           classNames={{ label: styles.inputLabel, input: styles.inputField }}
         />
 
-        {/* СЕНЬОР-ФИКС: Загрузка фото путешествия с устройства */}
-        <Group align="flex-end" gap="md" wrap="nowrap" mt="xs">
+        {/* Загрузка фото путешествия с устройства */}
+        <Group align="flex-end" gap="md" wrap="nowrap" mt="xs" className={styles.uploadGroup}>
           <div style={{ flex: 1 }}>
             <Text className={styles.inputLabel} size="sm" fw={500} mb={4}>
               Фотография места
@@ -169,15 +169,10 @@ export const AddTravelForm: React.FC<AddTravelFormProps> = ({
                   leftSection={file ? <FileImage size={18} /> : <Upload size={18} />}
                   className={styles.uploadBtn}
                 >
-                  {file ? 'Изменить фото' : 'Выбрать файл с устройства'}
+                  {file ? 'Изменить фото' : 'Выбрать файл'}
                 </Button>
               )}
             </FileButton>
-            {file && (
-              <Text size="xs" c="dimmed" mt={4} lineClamp={1}>
-                Выбран файл: {file.name}
-              </Text>
-            )}
           </div>
 
           {/* Превью выбранного фото */}

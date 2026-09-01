@@ -33,7 +33,7 @@ export const AddGoalModal: React.FC<AddGoalModalProps> = ({ opened, onClose, onG
     <Modal
       opened={opened}
       onClose={onClose}
-      title="Новая цель для накоплений 🎯"
+      title="Новая цель для накоплений"
       centered
       classNames={{
         content: styles.modalContent,

@@ -54,7 +54,7 @@ export const SavingsCard: React.FC<SavingsCardProps> = ({ goals, onRefresh }) =>
 
   const handleDeleteClick = (goal: SavingGoal) => {
     openConfirmDialog({
-      title: 'Удаление копилки 🎯',
+      title: 'Удаление копилки',
       message: (
         <>
           Вы уверены, что хотите удалить цель накоплений <b>{goal.title}</b>? Все зафиксированные
@@ -92,7 +92,7 @@ export const SavingsCard: React.FC<SavingsCardProps> = ({ goals, onRefresh }) =>
       {goals.length === 0 ? (
         <Center className={styles.emptyCenter}>
           <Text size="sm" className={styles.emptyText}>
-            У вас пока нет active целей накопления
+            У вас пока нет целей накопления
           </Text>
         </Center>
       ) : (

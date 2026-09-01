@@ -73,7 +73,9 @@
   button {
     color: #475569 !important;
     opacity: 0.7;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
 
     &:hover {
       opacity: 1;
@@ -84,7 +86,7 @@
   :global([data-theme='dark']) & {
     button {
       color: #94a3b8 !important;
-      
+
       &:hover {
         background-color: rgba(255, 255, 255, 0.06);
       }

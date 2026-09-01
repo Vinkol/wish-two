@@ -60,8 +60,8 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ userId, onTran
               setCategory(val === 'income' ? 'Зарплата' : 'Продукты');
             }}
             data={[
-              { label: 'Расход 📉', value: 'expense' },
-              { label: 'Доход 📈', value: 'income' },
+              { label: 'Расход', value: 'expense' },
+              { label: 'Доход', value: 'income' },
             ]}
             fullWidth
             className={styles.segmentControl}
