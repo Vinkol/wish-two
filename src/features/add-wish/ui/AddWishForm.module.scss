@@ -101,7 +101,7 @@
   }
 }
 
-// Кнопка добавления в индиго стиле
+// Кнопка добавления
 .submitButton {
   background-color: var(--primary-color) !important;
   color: #fff !important;
@@ -143,4 +143,19 @@
   height: 58px;
   width: 58px;
   flex-shrink: 0;
+
+  @include mobile-xs {
+    margin-top: 8px;
+    align-self: center;
+  }
+}
+
+.uploadGroup {
+  @include mobile-xs {
+    flex-wrap: wrap !important;
+
+    & > div {
+      width: 100%;
+    }
+  }
 }

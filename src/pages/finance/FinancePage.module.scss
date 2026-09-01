@@ -24,14 +24,22 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 2%);
   transition: all 0.25s ease;
 
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgb(0 0 0 / 4%);
-
     [data-theme='dark'] & {
       box-shadow: 0 10px 25px rgb(0 0 0 / 30%);
       border-color: rgb(255 255 255 / 10%) !important;
     }
+  }
+
+  @include mobile-xs {
+    padding: 1rem !important;
   }
 }
 
@@ -48,12 +56,12 @@
 
 .incomeIcon,
 .incomeText {
-  color: #10b981 !important; // Изумрудный доход
+  color: #10b981 !important;
 }
 
 .expenseIcon,
 .expenseText {
-  color: #f87171 !important; // Мягкий красный расход
+  color: #f87171 !important;
 }
 
 .balanceIcon {
@@ -146,6 +154,7 @@
   border-bottom: 1px solid var(--border-color) !important;
   padding: 0.85rem 0.5rem !important;
   transition: background-color 0.2s ease;
+  flex-wrap: nowrap !important;
 
   &:last-child {
     border-bottom: none !important;
@@ -153,6 +162,17 @@
 
   &:hover {
     background-color: rgb(99 102 241 / 2%) !important;
+  }
+
+  @include mobile-xs {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+
+    & > :last-child {
+      align-self: flex-end;
+      font-size: 1.1rem;
+    }
   }
 }
 
@@ -164,6 +184,13 @@
 .historyDescription {
   color: var(--text-muted);
   margin-top: 2px;
+
+  @include mobile-xs {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 @keyframes fade-in {

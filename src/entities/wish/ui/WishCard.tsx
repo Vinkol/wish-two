@@ -50,7 +50,7 @@ export const WishCard: React.FC<WishCardProps> = ({ wish, currentUserId, onStatu
 
   const handleDeleteWish = () => {
     openConfirmDialog({
-      title: 'Удаление желания 🗑️',
+      title: 'Удаление желания',
       message: (
         <>
           Вы уверены, что хотите удалить желание <b>{wish.title}</b> из вашего списка? Это действие
@@ -96,7 +96,6 @@ export const WishCard: React.FC<WishCardProps> = ({ wish, currentUserId, onStatu
         {wish.image_url ? (
           <Image src={wish.image_url} height={200} alt={wish.title} className={styles.image} />
         ) : (
-          /* Премиальный градиентный плейсхолдер с иконкой подарка */
           <div className={styles.placeholderGradient}>
             <Gift size={40} className={styles.placeholderIcon} />
           </div>
@@ -125,7 +124,6 @@ export const WishCard: React.FC<WishCardProps> = ({ wish, currentUserId, onStatu
               {wish.title}
             </Text>
 
-            {/* СЕНЬОР-ФИКС: Оставили только ActionIcon удаления, убрав громоздкие дубликаты бейджей */}
             {isOwnWish && (
               <ActionIcon
                 variant="subtle"
@@ -151,7 +149,7 @@ export const WishCard: React.FC<WishCardProps> = ({ wish, currentUserId, onStatu
           </Text>
         </div>
 
-        <Group mt="md" gap="xs">
+        <Group mt="md" gap="xs" className={styles.buttonsGroup}>
           {wish.link && (
             <Button
               component="a"

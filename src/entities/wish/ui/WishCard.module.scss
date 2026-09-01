@@ -22,6 +22,21 @@
       border-color: var(--primary-color) !important;
     }
   }
+
+  .buttonsGroup {
+    width: 100%;
+
+    @include mobile-xs {
+      flex-direction: column !important;
+      align-items: stretch !important;
+
+      button,
+      a {
+        width: 100% !important;
+        flex: none !important;
+      }
+    }
+  }
 }
 
 .imageSection {

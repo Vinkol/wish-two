@@ -1,37 +1,52 @@
 // Сеньор-палитра (константы)
 $sidebar-width: 260px;
 
+// Брейкпоинты, соответствующие стандартной сетке Mantine v7
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+
 // Базовые стили для светлой темы
 :root {
   --bg-main: #f8fafc;
   --bg-surface: #fff;
-  --bg-sidebar: #0f172a; // Премиальный темный сайдбар даже в светлой теме
+  --bg-sidebar: #0f172a;
   --text-main: #334155;
   --text-muted: #64748b;
   --text-on-sidebar: #f8fafc;
   --border-color: #e2e8f0;
-  --primary-color: #6366f1; // Благородный индиго вместо розового
+  --primary-color: #6366f1;
   --primary-hover: #4f46e5;
-  --accent-color: #14b8a6; // Бирюза для путешествий
+  --accent-color: #14b8a6;
+
+  // Глобальные отступы для адаптивности контента
+  --page-padding: 24px;
 }
 
 // Переопределение переменных для темной темы
 [data-theme='dark'] {
-  --bg-main: #0b0f19; // Глубокий космический сине-черный
-  --bg-surface: #151b2c; // Карточки и панели чуть светлее фона
+  --bg-main: #0b0f19;
+  --bg-surface: #151b2c;
   --bg-sidebar: #0b0f19;
   --text-main: #f1f5f9;
   --text-muted: #94a3b8;
   --text-on-sidebar: #f1f5f9;
   --border-color: #222f47;
-  --primary-color: #818cf8; // Чуть более пастельный индиго для контраста в темноте
+  --primary-color: #818cf8;
   --primary-hover: #6366f1;
   --accent-color: #2dd4bf;
 }
 
-// Миксин для мобилок остается неизменным
+// Адаптивные брейкпоинты
+@mixin mobile-xs {
+  @media (max-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
 @mixin mobile {
-  @media (width <= 768px) {
+  @media (max-width: #{$breakpoint-md}) {
     @content;
   }
 }

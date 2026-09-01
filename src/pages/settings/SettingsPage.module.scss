@@ -3,12 +3,25 @@
 .wrapper {
   max-width: 600px;
   width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mobile-xs {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
 
 .title {
   color: var(--text-main);
   font-weight: 800;
   letter-spacing: -0.5px;
+
+  @include mobile-xs {
+    font-size: 1.5rem;
+  }
 }
 
 .subtitle {
