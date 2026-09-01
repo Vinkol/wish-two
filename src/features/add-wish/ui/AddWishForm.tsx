@@ -170,7 +170,7 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
             onClick={async () => {
               if (!link) {
                 notifications.show({
-                  title: 'Внимание ⚠️',
+                  title: 'Внимание',
                   message: 'Сначала вставьте ссылку!',
                   color: 'orange',
                 });
@@ -179,40 +179,29 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
 
               notifications.show({
                 id: 'parsing',
-                title: 'Магия парсинга ✨',
+                title: 'Магия парсинга',
                 message: 'Обходим защиту маркетплейса и читаем данные...',
                 loading: true,
                 autoClose: false,
               });
 
               try {
-                // Используем продвинутый режим microlink с включенным рендерингом JavaScript
-                // и эмуляцией реального устройства (prerender=true&device=iPhone 13)
                 const res = await fetch(
-                  `https://microlink.io{encodeURIComponent(link)}&prerender=true&device=iPhone+13`
+                  `https://microlink.io/{encodeURIComponent(link)}&prerender=true&device=iPhone+13`
                 );
                 const json = await res.json();
 
                 if (json.status === 'success' && json.data) {
                   const metadata = json.data;
-
-                  // Заполняем поля
                   if (metadata.title) setTitle(metadata.title);
-
-                  // Продвинутый поиск описания (если маркетплейс длинный, берем самое емкое)
                   if (metadata.description) {
                     setDescription(metadata.description.slice(0, 200) + '...');
                   }
-
-                  // Ищем цену в метаданных (многие магазины отдают её в поле микроразметки)
                   if (metadata.price) {
                     setPrice(Math.round(metadata.price));
                   }
-
                   if (metadata.image?.url) {
                     setImagePreview(metadata.image.url);
-
-                    // Скачиваем картинку через прокси, чтобы обойти CORS блокировку маркетплейса
                     const imgRes = await fetch(metadata.image.url);
                     const blob = await imgRes.blob();
                     const parsedFile = new File([blob], 'product.jpg', { type: 'image/jpeg' });
@@ -221,7 +210,7 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
 
                   notifications.update({
                     id: 'parsing',
-                    title: 'Успешно спарсено! 🪄',
+                    title: 'Успешно спарсено',
                     message: 'Данные товара добавлены в форму.',
                     color: 'green',
                     autoClose: 3000,
@@ -232,7 +221,7 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
               } catch {
                 notifications.update({
                   id: 'parsing',
-                  title: 'Парсинг ограничен 🔍',
+                  title: 'Парсинг ограничен',
                   message:
                     'Маркетплейс скрыл данные. Пожалуйста, укажите цену и фото самостоятельно.',
                   color: 'orange',
@@ -246,8 +235,8 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
           </Button>
         </Group>
 
-        {/* СЕНЬОР-ФИКС: Загрузка фото с устройства */}
-        <Group align="flex-end" gap="md" wrap="nowrap" mt="xs">
+        {/* Загрузка фото с устройства */}
+        <Group align="flex-end" gap="md" wrap="nowrap" mt="xs" className={styles.uploadGroup}>
           <div style={{ flex: 1 }}>
             <Text className={styles.inputLabel} size="sm" fw={500} mb={4}>
               Изображение товара
@@ -262,15 +251,10 @@ export const AddWishForm: React.FC<AddWishFormProps> = ({
                   leftSection={file ? <FileImage size={18} /> : <Upload size={18} />}
                   className={styles.uploadBtn}
                 >
-                  {file ? 'Изменить фото' : 'Выбрать файл с устройства'}
+                  {file ? 'Изменить фото' : 'Выбрать файл'}
                 </Button>
               )}
             </FileButton>
-            {file && (
-              <Text size="xs" c="dimmed" mt={4} lineClamp={1}>
-                Выбран файл: {file.name}
-              </Text>
-            )}
           </div>
 
           {/* Отображение аккуратного мини-превью выбранной картинки */}
